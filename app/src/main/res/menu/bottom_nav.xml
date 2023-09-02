@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Feed"
+        android:id="@+id/feed"
+        android:icon="@drawable/baseline_feed_24"
+        />
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Watchlist"
+        android:id="@+id/watchlist"
+        android:icon="@drawable/baseline_bookmark_24"/>
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="FII/DII Data"
+        android:id="@+id/fii_dii"
+        android:icon="@drawable/baseline_data_exploration_24"/>
+    <item
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Settings"
+        android:id="@+id/settings"
+        android:icon="@drawable/baseline_settings_24"/>
+</menu>
