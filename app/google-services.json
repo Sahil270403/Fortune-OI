@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "56193665879",
+    "project_id": "fortune-oi",
+    "storage_bucket": "fortune-oi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56193665879:android:57a32bf660db6b50f20c12",
+        "android_client_info": {
+          "package_name": "com.example.fortuneoi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "56193665879-vh7kcls2ngjrvep4n6scjl1loo0sddv4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fortuneoi",
+            "certificate_hash": "be3a7733ac40c386158a55103e6f4b61f7010a8a"
+          }
+        },
+        {
+          "client_id": "56193665879-5a7om6bnoq3oaurb7bo9e4sr7k98l8ha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTLm81ra3uydyJqX-Kb7Novgx3lgEpxWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "56193665879-1isebl9qpn28cocfl42fq482sqb3l5id.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

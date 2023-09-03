@@ -13,10 +13,20 @@
         android:theme="@style/Theme.FortuneOI"
         tools:targetApi="31">
         <activity
+            android:name=".signup_email"
+            android:exported="false" />
+        <activity
+            android:name=".forget_pass"
+            android:exported="false"
+            android:label="@string/title_activity_forget_pass"
+            android:theme="@style/Theme.FortuneOI" />
+        <activity
+            android:name=".loginMain"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-
             android:name=".splashActivity"
             android:exported="true">
             <intent-filter>
@@ -25,6 +35,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
