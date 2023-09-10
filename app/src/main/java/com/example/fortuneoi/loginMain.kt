@@ -47,7 +47,7 @@ class loginMain : AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         binding.gSignInBtn.setOnClickListener {
-            anim.visibility = View.VISIBLE
+//            anim.visibility = View.VISIBLE
             signInGoogle()
         }
         binding.textView6.setOnClickListener {
