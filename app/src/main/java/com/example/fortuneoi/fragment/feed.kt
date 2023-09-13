@@ -17,7 +17,6 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.fortuneoi.Adapter.NewsItemClicked
 import com.example.fortuneoi.Adapter.NewsListAdapter
-import com.example.fortuneoi.R
 import com.example.fortuneoi.data.News
 import com.example.fortuneoi.databinding.FragmentFeedBinding
 
@@ -42,16 +41,16 @@ class feed : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         // Initialize the adapter here (create your NewsListAdapter)
-        mAdapter = NewsListAdapter(object : NewsItemClicked {
+        mAdapter = NewsListAdapter(requireContext(), object : NewsItemClicked {
             override fun onitemClicked(item: News) {
                 // Handle item click here if needed
+                // Open a Chrome Custom Tab or perform any other action here
                 val builder = CustomTabsIntent.Builder()
                 val customTabsIntent = builder.build()
-                parentContext?.let {
-                    customTabsIntent.launchUrl(it, Uri.parse(item.url))
-                }
+                customTabsIntent.launchUrl(requireContext(), Uri.parse(item.url))
             }
         })
+
 
         recyclerView.adapter = mAdapter
 
@@ -61,7 +60,7 @@ class feed : Fragment() {
     private fun fetchData() {
         val queue = Volley.newRequestQueue(requireContext()) // Use requireContext() here
         val url =
-            "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=c01c56bb90e64787a57ad76a4dbd2d93"
+            "https://newsapi.org/v2/everything?q=business&language=en&sortBy%20=%20relevancy&apiKey=c01c56bb90e64787a57ad76a4dbd2d93"
         val getRequest: JsonObjectRequest = object : JsonObjectRequest(
             Request.Method.GET,
             url,
@@ -69,6 +68,8 @@ class feed : Fragment() {
             Response.Listener {
                 Log.e("sdsadas", "$it")
                 val newsJsonArray = it.getJSONArray("articles")
+                Log.d("NewsAPI", "Number of articles received: ${newsJsonArray.length()}")
+
                 val newsArray = ArrayList<News>()
                 for (i in 0 until newsJsonArray.length()) {
                     val newsJsonObject = newsJsonArray.getJSONObject(i)
@@ -81,6 +82,9 @@ class feed : Fragment() {
 
                     newsArray.add(news)
                 }
+
+                Log.d("NewsAPI", "Number of articles added to newsArray: ${newsArray.size}")
+
                 mAdapter.updateNews(newsArray)
             },
             Response.ErrorListener { error ->

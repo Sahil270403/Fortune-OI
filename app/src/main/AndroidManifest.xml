@@ -13,9 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FortuneOI"
         tools:targetApi="31">
-        <activity
-            android:name=".newsActivity"
-            android:exported="false" />
+
         <activity
             android:name=".signup_email"
             android:exported="false" />
