@@ -41,6 +41,11 @@ android {
 }
 
 dependencies {
+    implementation ("com.github.bumptech.glide:glide:4.15.0")
+    implementation("com.android.volley:volley:1.2.1")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.15.0")
+    implementation ("androidx.browser:browser:1.5.0")
+
     implementation ("com.airbnb.android:lottie:3.4.0")
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
