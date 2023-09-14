@@ -1,9 +1,7 @@
 package com.example.fortuneoi.fragment
 
-import android.content.Context
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -23,7 +21,6 @@ import com.example.fortuneoi.databinding.FragmentFeedBinding
 class feed : Fragment() {
     private lateinit var mAdapter: NewsListAdapter
     private lateinit var binding: FragmentFeedBinding
-    private var parentContext: Context? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,23 +51,27 @@ class feed : Fragment() {
 
         recyclerView.adapter = mAdapter
 
-        fetchData() // Call the function to fetch data
+        fetchData(1) // Call the function to fetch data
     }
 
-    private fun fetchData() {
-        val queue = Volley.newRequestQueue(requireContext()) // Use requireContext() here
+    private fun fetchData(page: Int) {
+        val pageSize = 100 // You can adjust this based on your needs
+        val queue = Volley.newRequestQueue(requireContext())
+
         val url =
-            "https://newsapi.org/v2/everything?q=business&language=en&sortBy%20=%20relevancy&apiKey=c01c56bb90e64787a57ad76a4dbd2d93"
+            "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=c01c56bb90e64787a57ad76a4dbd2d93" +
+                    "&pageSize=$pageSize" +
+                    "&page=$page" // Specify the current page
+
         val getRequest: JsonObjectRequest = object : JsonObjectRequest(
             Request.Method.GET,
             url,
             null,
-            Response.Listener {
-                Log.e("sdsadas", "$it")
-                val newsJsonArray = it.getJSONArray("articles")
-                Log.d("NewsAPI", "Number of articles received: ${newsJsonArray.length()}")
-
+            Response.Listener { response ->
+                // Handle the response and add articles to your list
+                val newsJsonArray = response.getJSONArray("articles")
                 val newsArray = ArrayList<News>()
+
                 for (i in 0 until newsJsonArray.length()) {
                     val newsJsonObject = newsJsonArray.getJSONObject(i)
                     val news = News(
@@ -79,16 +80,20 @@ class feed : Fragment() {
                         newsJsonObject.getString("url"),
                         newsJsonObject.getString("urlToImage")
                     )
-
                     newsArray.add(news)
                 }
 
-                Log.d("NewsAPI", "Number of articles added to newsArray: ${newsArray.size}")
-
+                // Update your adapter with the new data
                 mAdapter.updateNews(newsArray)
+
+                // Fetch the next page if needed
+                if (newsJsonArray.length() == pageSize) {
+                    // If the current page is not the last one, fetch the next page
+                    fetchData(page + 1)
+                }
             },
             Response.ErrorListener { error ->
-
+                // Handle errors here
             }
         ) {
             @Throws(AuthFailureError::class)
@@ -98,7 +103,8 @@ class feed : Fragment() {
                 return params
             }
         }
+
         queue.add(getRequest)
     }
-
 }
+

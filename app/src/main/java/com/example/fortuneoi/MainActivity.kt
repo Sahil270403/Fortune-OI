@@ -2,6 +2,7 @@ package com.example.fortuneoi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.example.fortuneoi.databinding.ActivityMainBinding
 import com.example.fortuneoi.fragment.fii_dii_data
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         loadFragment(feed())
         bottomNav = findViewById(R.id.bottom_navigation) as BottomNavigationView
         bottomNav.setOnItemSelectedListener {

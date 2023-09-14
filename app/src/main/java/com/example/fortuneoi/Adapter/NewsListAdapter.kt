@@ -35,7 +35,12 @@ class NewsListAdapter(
         val currentItem = items[position]
         holder.titleView.text = currentItem.title
         holder.author.text = currentItem.author
-        Glide.with(holder.itemView.context).load(currentItem.imageUrl).into(holder.image)
+        Glide.with(holder.itemView.context)
+            .load(currentItem.imageUrl)
+            .placeholder(R.drawable.news_image) // Replace with your default image resource
+            .error(R.drawable.error) // Optional: Set an error image resource
+            .into(holder.image)
+
     }
 
     @SuppressLint("NotifyDataSetChanged")
