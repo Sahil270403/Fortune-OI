@@ -7,6 +7,17 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="market_summary_title">Market Summary</string>
+    <string name="trending_title">Trending</string>
+    <string name="watchlist_title">Watchlist</string>
+    <string name="search_bar_hint">Search for a stock...</string>
+    <string name="enter_button_text">Enter</string>
+    <string name="empty_hint">Your watchlist is currently empty!\n\nTo add to this watchlist, tap on a stock and then the heart to have the stocks show up here.</string>
+
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus

@@ -1,4 +1,4 @@
-package com.example.fortuneoi
+package com.example.fortuneoi.Activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -19,7 +19,7 @@ class splashActivity : AppCompatActivity() {
             val intent = Intent(this, loginMain::class.java)
             startActivity(intent)
             finish()
-        }, 4000)
+        }, 1000)
 
 
     }

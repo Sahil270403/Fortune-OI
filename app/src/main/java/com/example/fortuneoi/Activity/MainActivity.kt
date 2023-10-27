@@ -1,14 +1,15 @@
-package com.example.fortuneoi
+package com.example.fortuneoi.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toolbar
 import androidx.fragment.app.Fragment
+import com.example.fortuneoi.R
 import com.example.fortuneoi.databinding.ActivityMainBinding
-import com.example.fortuneoi.fragment.fii_dii_data
-import com.example.fortuneoi.fragment.feed
-import com.example.fortuneoi.fragment.settings
-import com.example.fortuneoi.fragment.watch_list
+import com.example.fortuneoi.Fragments.Home.fii_dii_data
+import com.example.fortuneoi.Fragments.Feed.feed
+import com.example.fortuneoi.Fragments.setting.settings
+import com.example.fortuneoi.Fragments.bookmark.watch_list
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {

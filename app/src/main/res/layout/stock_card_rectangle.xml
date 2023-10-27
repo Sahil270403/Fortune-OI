@@ -1,0 +1,56 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/stock_card_rectangle"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/rectange_view_height"
+    android:layout_marginLeft="@dimen/activity_margin"
+    android:layout_marginTop="@dimen/card_margin"
+    android:layout_marginRight="@dimen/activity_margin"
+    android:layout_marginBottom="@dimen/card_margin"
+    app:cardBackgroundColor="@color/cardColor"
+    app:cardCornerRadius="@dimen/corner_radius">
+
+    <LinearLayout
+        android:id="@+id/stock_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/activity_margin"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="@dimen/rectange_name_width"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:ellipsize="end"
+            android:gravity="center_vertical|start"
+            android:maxLines="1"
+            android:textColor="@color/textWhite"
+            android:textSize="@dimen/rectange_name"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="@dimen/rectange_numbers_width"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center"
+            android:paddingStart="@dimen/card_margin"
+            android:textColor="@color/white"
+            android:textSize="@dimen/small_size" />
+
+        <TextView
+            android:id="@+id/percentChange"
+            android:layout_width="@dimen/rectange_numbers_width"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical|end"
+            android:maxLines="1"
+            android:textColor="@color/priceGreen"
+            android:textSize="@dimen/small_size" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,4 +1,4 @@
-package com.example.fortuneoi
+package com.example.fortuneoi.Activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

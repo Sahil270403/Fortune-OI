@@ -15,4 +15,11 @@
     <color name="btn_color">#FF735C</color>
     <color name="edit_text_color">#FFD6CF</color>
     <color name="hint_text_color">#D4D4D4</color>
+    <color name="background">#111111</color>
+    <color name="textWhite">#ffffff</color>
+    <color name="roundedTV">#303030</color>
+    <color name="priceRed">#fc0000</color>
+    <color name="priceGreen">#00d964</color>
+    <color name="grey">#303030</color>
+    <color name="cardColor">#1c1c1e</color>
 </resources>

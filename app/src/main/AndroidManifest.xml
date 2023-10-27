@@ -15,21 +15,21 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".signup_email"
+            android:name=".Activity.signup_email"
             android:exported="false" />
         <activity
-            android:name=".forget_pass"
+            android:name=".Activity.forget_pass"
             android:exported="false"
             android:label="@string/title_activity_forget_pass"
             android:theme="@style/Theme.FortuneOI" />
         <activity
-            android:name=".loginMain"
+            android:name=".Activity.loginMain"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".splashActivity"
+            android:name=".Activity.splashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

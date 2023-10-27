@@ -1,4 +1,4 @@
-package com.example.fortuneoi.fragment
+package com.example.fortuneoi.Fragments.setting
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

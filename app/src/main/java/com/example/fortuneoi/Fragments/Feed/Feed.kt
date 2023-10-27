@@ -1,4 +1,4 @@
-package com.example.fortuneoi.fragment
+package com.example.fortuneoi.Fragments.Feed
 
 import android.net.Uri
 import android.os.Bundle

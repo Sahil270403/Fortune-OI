@@ -1,0 +1,53 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/stock_card_cube"
+    android:layout_width="@dimen/cube_width_and_height"
+    android:layout_height="@dimen/cube_width_and_height"
+    android:layout_marginLeft="@dimen/card_margin"
+    android:layout_marginTop="@dimen/card_margin"
+    android:layout_marginRight="@dimen/card_margin"
+    app:cardBackgroundColor="@color/cardColor"
+    app:cardCornerRadius="@dimen/corner_radius">
+
+    <LinearLayout
+        android:id="@+id/stock_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/card_margin_2"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="3">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/cube_name_height"
+            android:layout_marginBottom="@dimen/card_margin_2"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLength="20"
+            android:maxLines="2"
+            android:textColor="@color/textWhite"
+            android:textSize="@dimen/medium_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/card_margin_2"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/small_size" />
+
+        <TextView
+            android:id="@+id/percentChange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/priceGreen"
+            android:textSize="@dimen/small_size" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
