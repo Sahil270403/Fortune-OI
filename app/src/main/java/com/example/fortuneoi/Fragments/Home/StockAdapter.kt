@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.fortuneoi.Fragments.Details.DetailsActivity
 import com.example.fortuneoi.R
 import com.example.fortuneoi.data.FinanceData
 
@@ -48,12 +49,12 @@ class StockAdapter(private val data: FinanceData) :
             holder.tvPercentChange.text = "$roundedPercentChange%"
         }
 
-//        holder.card.setOnClickListener {
-//            val context = holder.card.context
-//            val intent = Intent(context, DetailsActivity::class.java)
-//            intent.putExtra("id", stock.symbol.toString());
-//            context.startActivity(intent)
-//        }
+        holder.card.setOnClickListener {
+            val context = holder.card.context
+            val intent = Intent(context, DetailsActivity::class.java)
+            intent.putExtra("id", stock.symbol.toString());
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {

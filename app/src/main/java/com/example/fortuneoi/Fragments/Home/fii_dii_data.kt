@@ -1,22 +1,21 @@
 package com.example.fortuneoi.Fragments.Home
 
-import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
+import android.view.inputmethod.EditorInfo
+import android.widget.EditText
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.fortuneoi.Activity.MainActivity
+import com.example.fortuneoi.Activity.SearchActivity
 import com.example.fortuneoi.Adapter.YahooFinanceService
 import com.example.fortuneoi.R
 import com.example.fortuneoi.data.FinanceData
 import com.example.fortuneoi.data.MarketData
 import com.google.android.material.snackbar.Snackbar
-import java.text.SimpleDateFormat
-import java.util.Calendar
 
 
 class fii_dii_data : Fragment(), HomeView {
@@ -32,8 +31,25 @@ class fii_dii_data : Fragment(), HomeView {
         val view = inflater.inflate(R.layout.fragment_fii_dii_data, container, false)
         // Inflate the layout for this fragment
         presenter.start()
+        val editText = view.findViewById<EditText>(R.id.edit_text)
+
+        editText.setOnEditorActionListener { v, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                val inputText = editText.text.toString()
+                if (!inputText.isBlank()) {
+                    val intent = Intent(activity, SearchActivity::class.java)
+                    // Pass any data to the new activity if needed.
+                    intent.putExtra("inputText", inputText)
+                    startActivity(intent)
+                }
+                true
+            } else {
+                false
+            }
+        }
         return view
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bindViews() // Now, bind the views after onCreateView returns the view
@@ -44,7 +60,8 @@ class fii_dii_data : Fragment(), HomeView {
     }
 
     override fun bindMarketSummary(data: MarketData) {
-        rvUSMarkets.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        rvUSMarkets.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         rvUSMarkets.adapter = MarketSummaryAdapter(data)
     }
 
@@ -55,7 +72,8 @@ class fii_dii_data : Fragment(), HomeView {
     }
 
     override fun bindTrending(data: FinanceData) {
-        rvTrending.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        rvTrending.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         rvTrending.adapter = StockAdapter(data)
     }
 

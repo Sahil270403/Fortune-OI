@@ -13,6 +13,23 @@
         android:background="@color/background"
         android:orientation="vertical">
 
+        <EditText
+            android:id="@+id/edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="@dimen/activity_margin"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginRight="@dimen/activity_margin"
+            android:layout_marginBottom="@dimen/card_margin"
+            android:background="@color/cardColor"
+            android:hint="@string/search_bar_hint"
+            android:imeOptions="actionDone"
+            android:inputType="text|textAutoCorrect"
+            android:maxLines="1"
+            android:padding="@dimen/activity_margin"
+            android:textColor="@color/textWhite"
+            android:textColorHint="#575757" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -63,7 +80,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvTrending"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal" />
         </LinearLayout>
 
