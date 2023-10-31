@@ -43,11 +43,12 @@
                 android:background="@color/cardColor"
                 android:hint="@string/search_bar_hint"
                 android:imeOptions="actionDone"
-                android:inputType="textImeMultiLine"
+                android:inputType="text|textAutoCorrect|textAutoComplete"
                 android:maxLines="1"
                 android:padding="@dimen/activity_margin"
                 android:textColor="@color/textWhite"
-                android:textColorHint="#575757" />
+                android:textColorHint="#575757"
+                android:autofillHints="true"/>
 
             <!--            <Button-->
             <!--                android:id="@+id/search_button"-->

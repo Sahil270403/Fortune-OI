@@ -5,12 +5,46 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.bookmark.watch_list">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:id="@+id/watchlist_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="frag3"
-        android:gravity="center"/>
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/watchlistError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/activity_margin"
+                android:gravity="center"
+                android:text="@string/empty_hint"
+                android:textColor="@color/textWhite"
+                android:textSize="@dimen/large_size"
+                android:visibility="invisible" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvWatchlist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/frame_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+
+    </LinearLayout>
 
 
 </FrameLayout>
