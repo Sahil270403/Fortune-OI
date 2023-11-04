@@ -22,7 +22,6 @@ import com.google.android.material.snackbar.Snackbar
 
 class DetailsActivity : AppCompatActivity(), DetailsView {
 
-    // I feel like there may be a better way of dealing with all of these, but I'm leaving this as is for now
     val presenter = DetailsPresenter(this, yahooService = YahooFinanceService())
     lateinit var detailsContainer: View
     lateinit var stockName: TextView

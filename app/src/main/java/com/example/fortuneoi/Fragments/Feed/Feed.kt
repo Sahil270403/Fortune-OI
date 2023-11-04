@@ -15,12 +15,16 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.fortuneoi.Adapter.NewsItemClicked
 import com.example.fortuneoi.Adapter.NewsListAdapter
+import com.example.fortuneoi.CustomProgressBar
+import com.example.fortuneoi.R
 import com.example.fortuneoi.data.News
 import com.example.fortuneoi.databinding.FragmentFeedBinding
 
 class feed : Fragment() {
     private lateinit var mAdapter: NewsListAdapter
     private lateinit var binding: FragmentFeedBinding
+    private lateinit var customProgressBar: CustomProgressBar
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +44,7 @@ class feed : Fragment() {
         // Initialize the adapter here (create your NewsListAdapter)
         mAdapter = NewsListAdapter(requireContext(), object : NewsItemClicked {
             override fun onitemClicked(item: News) {
-                // Handle item click here if needed
+                // Handle item click here if neededz
                 // Open a Chrome Custom Tab or perform any other action here
                 val builder = CustomTabsIntent.Builder()
                 val customTabsIntent = builder.build()
@@ -51,15 +55,18 @@ class feed : Fragment() {
 
         recyclerView.adapter = mAdapter
 
+        customProgressBar = CustomProgressBar(requireContext())
+        customProgressBar.show()
         fetchData(1) // Call the function to fetch data
+
     }
 
     private fun fetchData(page: Int) {
+
         val pageSize = 100 // You can adjust this based on your needs
         val queue = Volley.newRequestQueue(requireContext())
 
-        val url =
-            "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=c01c56bb90e64787a57ad76a4dbd2d93" +
+        val url = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=c01c56bb90e64787a57ad76a4dbd2d93" +
                     "&pageSize=$pageSize" +
                     "&page=$page" // Specify the current page
 
@@ -69,6 +76,7 @@ class feed : Fragment() {
             null,
             Response.Listener { response ->
                 // Handle the response and add articles to your list
+                customProgressBar.dismiss()
                 val newsJsonArray = response.getJSONArray("articles")
                 val newsArray = ArrayList<News>()
 
